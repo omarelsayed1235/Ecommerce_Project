@@ -1,6 +1,6 @@
 @extends('layouts.main')
 @section('content')
-{{-- @dd($products) --}}
+{{-- slideshow section --}}
 <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
     <div class="carousel-indicators">
         <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active"
@@ -47,6 +47,8 @@
         <span class="visually-hidden">Next</span>
     </button>
 </div>
+{{-- end of slide show section --}}
+{{-- new trend section --}}
 <div class="container-fluid bg-white pt-5 pb-5">
     <div class="container">
         <div class="row">
@@ -86,22 +88,24 @@
         </div>
     </div>
 </div>
+{{-- end of new Trend section --}}
+{{-- featured items --}}
 <div class="container-fluid mb-5">
     <div class="container">
         <div class="row">
             <div class="col-12 text-center">
                 <ul class="list-unstyled d-inline-flex">
-                    <li class="pb-2 px-4"><a href="#" class="footer-font text-decoration-none font4">All</a></li>
-                    <li class="pb-2 px-4"><a href="#" class="footer-font text-decoration-none font4">Men</a></li>
-                    <li class="pb-2 px-4"><a href="#" class="footer-font text-decoration-none font4">Women</a></li>
-                    <li class="pb-2 px-4"><a href="#" class="footer-font text-decoration-none font4">Kids</a></li>
+                    <li class="pb-2 px-4"><a href="{{ route('test') }}" class="footer-font text-decoration-none font4">All</a></li>
+                    <li class="pb-2 px-4"><a href="{{ route('index.men') }}" class="footer-font text-decoration-none font4">Men</a></li>
+                    <li class="pb-2 px-4"><a href="{{ route('index.women') }}" class="footer-font text-decoration-none font4">Women</a></li>
+                    <li class="pb-2 px-4"><a href="{{ route('index.kids') }}" class="footer-font text-decoration-none font4">Kids</a></li>
                 </ul>
             </div>
             <div class="row row-cols-1 row-cols-md-4 g-3">
                 @foreach ($products as $product )
                 <div class="col">
                     <div class="card mb-md-2 border-0 text-nowrap">
-                        <a href="">
+                        <a href="{{ route('search.show',$product->id) }}">
                             <img src="{{ $product->getFirstMediaUrl() }}"
                                 class="card-img-top image-hover" alt="..." height="400">
                                 <div class="hide">
@@ -135,6 +139,7 @@
         </div>
     </div>
 </div>
+{{-- end of featured items --}}
 <div class="d-flex mb-5">
     <div class="col-6">
         <img src="https://manofmany.com/wp-content/uploads/2019/04/David-Gandy.jpg" alt="" class="img-fluid">
@@ -144,6 +149,7 @@
             alt="" class="img-fluid">
     </div>
 </div>
+{{-- trending items --}}
 <div class="container-fluid">
     <div class="container">
         <div class="row pt-4">
@@ -159,25 +165,25 @@
         </div>
         <div class="row">
             <div class="row row-cols-1 row-cols-md-4 g-3">
-                @foreach ($products as $product )
+                @foreach ($trendings as $trending )
                 <div class="col">
                     <div class="card mb-md-2 border-0">
-                        <a href="">
-                            <img src="{{ $product->getFirstMediaUrl() }}"
+                        <a href="{{ route('search.show',$trending->id) }}">
+                            <img src="{{ $trending->getFirstMediaUrl() }}"
                                 class="card-img-top image-hover" alt="..." height="400">
                                 <div class="hide">
                                     <i class="fa-solid fa-eye fa-2x eye-color"></i>
                                 </div>
                         </a>
                         <div class="card-img-overlay card2 top-0 end-50 pb-4 pt-2">
-                            <h5 class="card-title text-white card-font fw-bold">${{ $product->price }}</h5>
+                            <h5 class="card-title text-white card-font fw-bold">${{ $trending->price }}</h5>
                         </div>
                         <div class="card-body">
-                            <h5 class="card-title">{{ $product->name }}</h5>
-                            @for ($i = 0; $i <$product->rating ; $i++)
+                            <h5 class="card-title">{{ $trending->name }}</h5>
+                            @for ($i = 0; $i <$trending->rating ; $i++)
                             <i class="fa-solid fa-star star"></i>
                             @endfor
-                            @for ($i = $product->rating; $i < 5 ; $i++)
+                            @for ($i = $trending->rating; $i < 5 ; $i++)
                             <i class="fa-regular fa-star"></i>
                             @endfor
                             <div class="mt-3">
@@ -199,6 +205,7 @@
         </div>
     </div>
 </div>
+{{-- end of trending items --}}
 <div class="image-background">
     <div class="text-center pb-1">
         <i class="fa-solid fa-quote-left mt-5 fa-2x quote-icon"></i>
@@ -213,6 +220,7 @@
         </div>
     </div>
 </div>
+{{-- latest blog --}}
 <div class="container-fluid">
     <div class="container">
         <div class="row pt-4">
@@ -245,7 +253,7 @@
                 </div>
                 <div class="col">
                     <div class="card mb-md-2 border-0">
-                        <img src="https://manofmany.com/wp-content/uploads/2019/04/David-Gandy.jpg"
+                        <img src="https://media.istockphoto.com/photos/image-of-open-antique-book-on-wooden-table-with-glitter-overlay-picture-id1354441996?b=1&k=20&m=1354441996&s=170667a&w=0&h=O4JDagXhIh1N13PNN6G4_L5KB5QPZryin7FOrZnzYvc="
                             class="card-img-top" alt="...">
                         <div class="card-body">
                             <h3 class="card-title">Some Headline Here</h3>
@@ -260,7 +268,7 @@
                 </div>
                 <div class="col">
                     <div class="card mb-md-2 border-0">
-                        <img src="https://manofmany.com/wp-content/uploads/2019/04/David-Gandy.jpg"
+                        <img src="https://thumbs.dreamstime.com/b/old-opened-book-heart-shaped-paper-sheets-dark-background-stars-toned-vintage-selective-focus-lights-world-day-teachers-175555860.jpg"
                             class="card-img-top" alt="...">
                         <div class="card-body">
                             <h3 class="card-title">Some Headline Here</h3>
@@ -303,5 +311,5 @@
         </div>
     </div>
 </div>
-
+{{-- end of latest blog --}}
 @endsection

@@ -14,10 +14,14 @@
         crossorigin="anonymous" referrerpolicy="no-referrer" />
 
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="{{ asset('js/index.js') }}"></script>
     <title>Document</title>
 </head>
 <body>
+    {{-- header section --}}
     <header>
+        {{-- navbar section --}}
         <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
             <div class="container-fluid nav-class">
                 <p class="navbar-text pt-2 offset-1 navfont mt-2">Free Shipping on All orders Over 75$!</p>
@@ -50,13 +54,15 @@
                             </ul>
                         </li>
                         <li class="nav-item px-2">
-                            <a class="nav-link cart-edit navbar-text" href="#"><i class="fa-solid fa-cart-shopping"></i>
+                            <a class="nav-link cart-edit navbar-text" href="{{ route('mycart') }}"><i class="fa-solid fa-cart-shopping"></i>
                                 My Cart</a>
                         </li>
                     </ul>
                 </div>
             </div>
         </nav>
+        {{-- end of navbar section --}}
+        {{-- search section --}}
         <div class="row d-flex bg-white justify-content-center test rounded-pill searchbar pb-5">
             <form class="d-flex search-edit border rounded-pill" action="{{ route('product.search') }}">
                 <input class="form-control-plaintext font1" type="search" placeholder="Search Here What You Need..."
@@ -67,6 +73,7 @@
         <div class="container w-50" id="result">
 
         </div>
+        {{-- end of search section --}}
         <div class="container-fluid footer-bg pt-4 mt-2">
             <div class="container">
                 <div class="row">
@@ -74,7 +81,7 @@
                         <p class="font2 text-white mt-1">Fashion</p>
                     </div>
                     <div class="col-11 col-sm-11 col-md-11 col-lg-10 col-xl-10 text-end px-0">
-                        <a class="text-decoration-none px-sm-1 px-lg-2 links text-wrap font3" href="{{ url('index') }}">Home</a>
+                        <a class="text-decoration-none px-sm-1 px-lg-2 links text-wrap font3" href="#">Home</a>
                         <a class="text-decoration-none px-sm-1 px-lg-2 links text-wrap font3" href="#">Women</a>
                         <a class="text-decoration-none px-sm-1 px-lg-2 links text-wrap font3" href="#">Men</a>
                         <a class="text-decoration-none px-sm-1 px-lg-2 links text-wrap font3" href="#">Footwear</a>
@@ -87,6 +94,7 @@
         </div>
     </header>
     @yield('content')
+    {{-- Creating the Footer Section --}}
     <footer>
         <div class="container-fluid footer-color pt-5 px-0" id="footer">
             <div class="container pt-5">
@@ -239,6 +247,7 @@
             </div>
         </div>
     </footer>
+    {{-- end of footer section --}}
 </body>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script type="text/javascript">

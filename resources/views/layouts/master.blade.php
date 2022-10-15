@@ -9,6 +9,7 @@
 
    <link rel="stylesheet" href="{{ asset('build/assets/app.f330b5ff.css') }}">
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+
     <script nonce="4c4f739b-b934-4f82-9b7d-c9960f698ca7">
         (function(w, d) {
             ! function(a, e, t, r) {
@@ -216,7 +217,7 @@
 
         <aside class="main-sidebar sidebar-dark-primary elevation-4">
 
-            <a href="index3.html" class="brand-link text-decoration-none">
+            <a href="{{ route('test') }}" class="brand-link text-decoration-none">
                 <span class="brand-text font-weight-light">Fashion</span>
             </a>
 
@@ -254,39 +255,24 @@
                             </a>
                             <ul class="nav nav-treeview">
                                 <li class="nav-item">
-                                    <a href="#" class="nav-link active">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>Active Page</p>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="{{ route('user.index') }}" class="nav-link">
+                                    <a href="{{ route('user.index') }}" class="nav-link" id="nav1">
                                         <i class="fa-solid fa-user nav-icon"></i>
                                         <p>Users</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="{{ route('product.index') }}" class="nav-link">
+                                    <a href="{{ route('product.index') }}" onclick="myFunction()" class="nav-link" id="nav2">
                                         <i class="fa-solid fa-shirt nav-icon"></i>
                                         <p>Products</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="{{ route('category.index') }}" class="nav-link">
+                                    <a href="{{ route('category.index') }}" class="nav-link" id="nav3">
                                         <i class="fa-solid fa-boxes-stacked nav-icon"></i>
                                         <p>Categories</p>
                                     </a>
                                 </li>
                             </ul>
-                        </li>
-                        <li class="nav-item">
-                            <a href="#" class="nav-link">
-                                <i class="nav-icon fas fa-th"></i>
-                                <p>
-                                    Simple Link
-                                    <span class="right badge badge-danger">New</span>
-                                </p>
-                            </a>
                         </li>
                     </ul>
                 </nav>
@@ -314,65 +300,7 @@
             </div>
 
 
-            {{-- <div class="content">
-                <div class="container-fluid">
-                    <div class="row">
-                        <div class="col-lg-6">
-                            <div class="card">
-                                <div class="card-body">
-                                    <h5 class="card-title">Card title</h5>
-                                    <p class="card-text">
-                                        Some quick example text to build on the card title and make up the bulk of the
-                                        card's
-                                        content.
-                                    </p>
-                                    <a href="#" class="card-link">Card link</a>
-                                    <a href="#" class="card-link">Another link</a>
-                                </div>
-                            </div>
-                            <div class="card card-primary card-outline">
-                                <div class="card-body">
-                                    <h5 class="card-title">Card title</h5>
-                                    <p class="card-text">
-                                        Some quick example text to build on the card title and make up the bulk of the
-                                        card's
-                                        content.
-                                    </p>
-                                    <a href="#" class="card-link">Card link</a>
-                                    <a href="#" class="card-link">Another link</a>
-                                </div>
-                            </div>
-                        </div>
 
-                        <div class="col-lg-6">
-                            <div class="card">
-                                <div class="card-header">
-                                    <h5 class="m-0">Featured</h5>
-                                </div>
-                                <div class="card-body">
-                                    <h6 class="card-title">Special title treatment</h6>
-                                    <p class="card-text">With supporting text below as a natural lead-in to additional
-                                        content.</p>
-                                    <a href="#" class="btn btn-primary">Go somewhere</a>
-                                </div>
-                            </div>
-                            <div class="card card-primary card-outline">
-                                <div class="card-header">
-                                    <h5 class="m-0">Featured</h5>
-                                </div>
-                                <div class="card-body">
-                                    <h6 class="card-title">Special title treatment</h6>
-                                    <p class="card-text">With supporting text below as a natural lead-in to additional
-                                        content.</p>
-                                    <a href="#" class="btn btn-primary">Go somewhere</a>
-                                </div>
-                            </div>
-                        </div>
-
-                    </div>
-
-                </div>
-            </div> --}}
             @yield('showuser')
             @yield('createuser')
             @yield('updateuser')

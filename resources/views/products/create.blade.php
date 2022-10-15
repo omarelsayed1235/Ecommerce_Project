@@ -16,7 +16,7 @@
     </div>
     <div class="mb-3 mx-3">
       <label for="rating" class="form-label">Rating</label>
-      <input type="number" class="form-control" name="rating">
+      <input type="number" class="form-control" name="rating" min="1" max="5">
     </div>
     <div class="mb-3 mx-3">
         <label for="category">category</label>

@@ -127,10 +127,14 @@ class ProductController extends Controller
                         </table>
                     </form>
                 ';
+                if(!$request->search){
+                    $output='';
+                }
                 }
                 return response()->json($output);
             }
         }
+
         return view('index');
     }
 }

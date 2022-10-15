@@ -71,12 +71,12 @@
 <body class="hold-transition login-page">
     <div class="login-box">
         <div class="login-logo">
-            <a href="../../index2.html"><b>Admin</b>LTE</a>
+            <a href="">Fashion</a>
         </div>
 
         <div class="card">
             <div class="card-body login-card-body">
-                <p class="login-box-msg">Sign in to start your session</p>
+                <p class="login-box-msg">Sign in to fashion</p>
                 <form method="POST" action="{{ route('login') }}">
                     @csrf
                     <div class="input-group mb-3">
@@ -130,7 +130,7 @@
                 @endif
                 </p>
                 <p class="mb-0">
-                    <a href="{{ route('register') }}" class="text-center">{{ __('Register') }}</a>
+                    <a href="{{ route('register') }}" class="text-center ms-1 px-2">{{ __('Register') }}</a>
                 </p>
             </div>
 
